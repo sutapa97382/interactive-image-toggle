@@ -43,7 +43,7 @@ The **Pic On-Off** web application demonstrates dynamic DOM manipulation in vani
 ## 📂 Project Structure
 
 ```bash
-pic-on-off/
+interactive-image-toggle/
 ├── 📄 index.html      # UI structure, styling, and switcher logic
 ├── 🖼️ cat.png         # State 1 graphic
 ├── 🖼️ doggy.png       # State 2 graphic
@@ -59,12 +59,12 @@ pic-on-off/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/sutapa97382/pic-on-off.git
+   git clone https://github.com/sutapa97382/interactive-image-toggle.git
    ```
 
 2. **Navigate to directory:**
    ```bash
-   cd pic-on-off
+   cd interactive-image-toggle
    ```
 
 3. **Open:**
