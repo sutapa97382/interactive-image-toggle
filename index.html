@@ -3,17 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pic on-off></title>
+    <title>Pic On / Off - Interactive Image Switcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #f8fafc;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .image-container {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            background: #0f172a;
+            border: 2px solid rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .image-container img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-on {
+            background: linear-gradient(135deg, #38bdf8, #2563eb);
+            color: white;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-on:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+        }
+
+        .btn-off {
+            background: rgba(51, 65, 85, 0.8);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-off:hover {
+            background: rgba(71, 85, 105, 1);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-    <button
-        onclick="document.getElementById('myImage').src='cat.png'"> pic on</button>
 
-        <img id="myImage" src="cat.png" style="width:100px">
+    <div class="card">
+        <h1>Interactive Switcher</h1>
+        <p class="subtitle">Click buttons to switch character state</p>
 
-        <button
-        onclick="document.getElementById('myImage').src='doggy.png'">pic off</button>
-    
-    
+        <div class="image-container">
+            <img id="myImage" src="cat.png" alt="Current Image">
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-on" onclick="switchImage('cat.png')">🐱 Cat (On)</button>
+            <button class="btn-off" onclick="switchImage('doggy.png')">🐶 Dog (Off)</button>
+        </div>
+    </div>
+
+    <script>
+        function switchImage(src) {
+            const img = document.getElementById('myImage');
+            img.style.opacity = 0;
+            img.style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                img.src = src;
+                img.style.opacity = 1;
+                img.style.transform = 'scale(1)';
+            }, 150);
+        }
+    </script>
 </body>
 </html>
